@@ -1,0 +1,16 @@
+services:
+  hub:
+    image: selenium/hub
+  chrome:
+    image: selenium/node-chrome
+    shm_size: '2g'
+    depends_on:
+    - hub
+    env_file: .env
+  firefox:
+    image: selenium/node-firefox
+    shm_size: '2g'
+    depends_on:
+    - hub
+    env_file: .env
+   
