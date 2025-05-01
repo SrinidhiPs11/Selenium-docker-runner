@@ -14,7 +14,7 @@ pipeline {
         stage('Run Test') {
             steps {
                 bat 'docker-compose -f test-suite.yaml up --pull=always'
-                srcipt {
+                script {
                     if (fileExists('output/flight-reservation/testng-failed.xml') || fileExists('output/vendor-portal/testng-failed.xml')) {
                         error('Test failed')
                     } else {
